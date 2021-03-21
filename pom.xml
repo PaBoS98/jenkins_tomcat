@@ -7,7 +7,7 @@
     <groupId>org.example</groupId>
     <artifactId>jenkins_tomcat</artifactId>
     <version>1.0-SNAPSHOT</version>
-<!--    <packaging>war</packaging>-->
+    <packaging>war</packaging>
 <!--    <name>JenkinsWar Maven TomcatApp</name>-->
 
     <properties>
@@ -28,9 +28,8 @@
             <plugin>
                 <groupId>org.apache.maven.plugins</groupId>
                 <artifactId>maven-war-plugin</artifactId>
-                <version>3.3.1</version>
                 <configuration>
-                    <webappDirectory>/sample/servlet/container/deploy/directory</webappDirectory>
+                    <webXml>src/main/java/com/WEB-INF/web.xml</webXml>
                 </configuration>
             </plugin>
         </plugins>
