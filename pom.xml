@@ -8,7 +8,6 @@
     <artifactId>jenkins_tomcat</artifactId>
     <version>1.0-SNAPSHOT</version>
     <packaging>war</packaging>
-<!--    <name>JenkinsWar Maven TomcatApp</name>-->
 
     <properties>
         <maven.compiler.source>1.8</maven.compiler.source>
@@ -16,17 +15,34 @@
     </properties>
 
     <dependencies>
+<!--        <dependency>-->
+<!--            <groupId>org.apache.maven.plugins</groupId>-->
+<!--            <artifactId>maven-war-plugin</artifactId>-->
+<!--            <version>2.2</version>-->
+<!--        </dependency>-->
+<!--        <dependency>-->
+<!--            <groupId>javaee</groupId>-->
+<!--            <artifactId>javaee-api</artifactId>-->
+<!--            <version>5</version>-->
+<!--        </dependency>-->
+<!--        <dependency>-->
+<!--            <groupId>javax</groupId>-->
+<!--            <artifactId>javaee-web-api</artifactId>-->
+<!--            <version>6.0</version>-->
+<!--            <scope>provided</scope>-->
+<!--        </dependency>-->
+
         <dependency>
-            <groupId>org.apache.maven.plugins</groupId>
-            <artifactId>maven-war-plugin</artifactId>
-            <version>2.2</version>
+            <groupId>javax.servlet</groupId>
+            <artifactId>servlet-api</artifactId>
+            <version>3.0-alpha-1</version>
+            <scope>provided</scope>
         </dependency>
         <dependency>
             <groupId>javaee</groupId>
             <artifactId>javaee-api</artifactId>
             <version>5</version>
         </dependency>
-
         <dependency>
             <groupId>javax</groupId>
             <artifactId>javaee-web-api</artifactId>
@@ -45,22 +61,31 @@
                     <target>1.8</target>
                 </configuration>
             </plugin>
+<!--            <plugin>-->
+<!--                <groupId>org.apache.maven.plugins</groupId>-->
+<!--                <artifactId>maven-war-plugin</artifactId>-->
+<!--                <configuration>-->
+<!--                    <webXml>src/main/java/com/WEB-INF/web.xml</webXml>-->
+<!--                </configuration>-->
+<!--            </plugin>-->
+<!--            <plugin>-->
+<!--                <groupId>org.codehaus.cargo</groupId>-->
+<!--                <artifactId>cargo-maven2-plugin</artifactId>-->
+<!--                <version>1.7.6</version>-->
+<!--                <configuration>-->
+<!--                    <container>-->
+<!--                        <containerId>tomcat9x</containerId>-->
+<!--                        <type>embedded</type>-->
+<!--                    </container>-->
+<!--                </configuration>-->
+<!--            </plugin>-->
+
             <plugin>
                 <groupId>org.apache.maven.plugins</groupId>
                 <artifactId>maven-war-plugin</artifactId>
+                <version>2.1.1</version>
                 <configuration>
-                    <webXml>src/main/java/com/WEB-INF/web.xml</webXml>
-                </configuration>
-            </plugin>
-            <plugin>
-                <groupId>org.codehaus.cargo</groupId>
-                <artifactId>cargo-maven2-plugin</artifactId>
-                <version>1.7.6</version>
-                <configuration>
-                    <container>
-                        <containerId>tomcat9x</containerId>
-                        <type>embedded</type>
-                    </container>
+                    <failOnMissingWebXml>false</failOnMissingWebXml>
                 </configuration>
             </plugin>
         </plugins>
