@@ -12,10 +12,10 @@
     		</div>
     		<%boolean active=request.getSession().getAttribute("active"); %>
 
-            <c:if test="true">
+            <c:if active="true">
                 I see!  You  have a name.. well.. Hello
             </c:if>
-            <c:if test="false">
+            <c:if active="false">
                 I see!  You don't have a name.. well.. Hello no name
             </c:if>
 
