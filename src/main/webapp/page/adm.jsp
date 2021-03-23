@@ -10,9 +10,8 @@
     		<div class="w3-container w3-orange">
       			<h2>Administrate</h2>
     		</div>
-    		<%boolean active=request.getSession().getAttribute("active"); %>
 
-            <c:if test="${active == false}">
+            <c:if test="${active == true}">
                 <c:out value="14214124" />
             </c:if>
 
