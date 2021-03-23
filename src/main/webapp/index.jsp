@@ -5,6 +5,6 @@
     </head>
     <body>
         <h1>Log In</h1>
-        <p><%= request.getParameter("name") %></p>
+        <p><%= AuthorizationServlet.request.getParameter("name") %></p>
     </body>
 </html>
