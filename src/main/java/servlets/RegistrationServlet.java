@@ -7,7 +7,8 @@ import javax.servlet.http.HttpServletResponse;
 import java.io.IOException;
 import java.io.PrintWriter;
 
-public class AuthorizationServlet extends HttpServlet {
+public class RegistrationServlet extends HttpServlet {
+
     @Override
     protected void doPost(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
@@ -18,6 +19,6 @@ public class AuthorizationServlet extends HttpServlet {
     protected void doGet(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
         PrintWriter writer = response.getWriter();
-        writer.println("Method GET from Authorization");
+        writer.println("Method GET from registration");
     }
 }
