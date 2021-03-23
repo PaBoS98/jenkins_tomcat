@@ -26,10 +26,10 @@ public class AuthorizationServlet extends HttpServlet {
                 request.getParameter("pass")
                 );
 
-        request.setAttribute("id", user.getId());
-        request.setAttribute("name", user.getName());
-        request.setAttribute("email", user.getEmail());
-        request.setAttribute("pass", user.getPassword());
+//        request.setAttribute("id", user.getId());
+//        request.setAttribute("name", user.getName());
+//        request.setAttribute("email", user.getEmail());
+//        request.setAttribute("pass", user.getPassword());
 
         RequestDispatcher requestDispatcher = request.getRequestDispatcher("/user");
         requestDispatcher.forward(request, response);
