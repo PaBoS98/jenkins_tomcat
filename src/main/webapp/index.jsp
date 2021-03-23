@@ -1,10 +1,10 @@
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
 <html>
-<head>
-    <title>Tomcat</title>
-</head>
-<body>
-${textA}
-${textB}
-</body>
+    <head>
+        <title>Shop</title>
+    </head>
+    <body>
+        <h1>Log In</h1>
+        <p><%= request.getParameter("name") %></p>
+    </body>
 </html>
