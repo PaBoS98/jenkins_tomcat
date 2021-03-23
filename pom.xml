@@ -71,6 +71,18 @@
             <version>1.2</version>
         </dependency>
         <dependency>
+            <groupId>org.apache.tomcat</groupId>
+            <artifactId>el-api</artifactId>
+            <version>6.0.26</version>
+            <scope>provided</scope>
+        </dependency>
+        <dependency>
+            <groupId>org.apache.tomcat</groupId>
+            <artifactId>jasper-el</artifactId>
+            <version>6.0.26</version>
+            <scope>provided</scope>
+        </dependency>
+        <dependency>
             <groupId>javaee</groupId>
             <artifactId>javaee-api</artifactId>
             <version>5</version>
