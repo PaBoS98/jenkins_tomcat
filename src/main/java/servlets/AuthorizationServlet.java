@@ -11,6 +11,7 @@ import javax.servlet.ServletException;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import javax.servlet.http.HttpSession;
 import java.io.IOException;
 import java.io.PrintWriter;
 
@@ -26,10 +27,12 @@ public class AuthorizationServlet extends HttpServlet {
                 request.getParameter("pass")
                 );
 
-//        request.setAttribute("id", user.getId());
-//        request.setAttribute("name", user.getName());
-//        request.setAttribute("email", user.getEmail());
-//        request.setAttribute("pass", user.getPassword());
+//        HttpSession session = request.getSession();
+
+        request.setAttribute("id", user.getId());
+        request.setAttribute("name", user.getName());
+        request.setAttribute("email", user.getEmail());
+        request.setAttribute("pass", user.getPassword());
 
         RequestDispatcher requestDispatcher = request.getRequestDispatcher("/user");
         requestDispatcher.forward(request, response);

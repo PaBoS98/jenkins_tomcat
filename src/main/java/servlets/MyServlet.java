@@ -6,6 +6,7 @@ import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import javax.servlet.http.HttpSession;
 import java.io.IOException;
 import java.io.PrintWriter;
 
@@ -16,26 +17,26 @@ public class MyServlet extends HttpServlet {
     @Override
     protected void doPost(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
+//        HttpSession session = request.getSession();
+
+        String id = request.getParameter("id");
+        String name = request.getParameter("name");
+        String email = request.getParameter("email");
+        String password = request.getParameter("pass");
+
         PrintWriter writer = response.getWriter();
-        writer.println("HI");
+
+        writer.println("HELLO! " + name);
+        writer.println("Your account");
+        writer.println("id " + id);
+        writer.println("name " + name);
+        writer.println("email " + email);
+        writer.println("password " + password);
     }
 
     @Override
     protected void doGet(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
-
-//        long id = request.getDateHeader("id");
-//        String name = request.getParameter("name");
-//        String email = request.getParameter("email");
-//        String password = request.getParameter("pass");
-
-
-//        writer.println("HELLO! " + name);
-//        writer.println("Your account");
-//        writer.println("id " + id);
-//        writer.println("name " + name);
-//        writer.println("email " + email);
-//        writer.println("password " + password);
 
 //        response.setContentType("text/html");
 //
