@@ -16,7 +16,8 @@ public class MyServlet extends HttpServlet {
     @Override
     protected void doPost(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
-        super.doPost(request, response);
+        PrintWriter writer = response.getWriter();
+        writer.println("HI");
     }
 
     @Override
@@ -28,8 +29,7 @@ public class MyServlet extends HttpServlet {
 //        String email = request.getParameter("email");
 //        String password = request.getParameter("pass");
 
-        PrintWriter writer = response.getWriter();
-        writer.println("HI");
+
 //        writer.println("HELLO! " + name);
 //        writer.println("Your account");
 //        writer.println("id " + id);
