@@ -1,5 +1,7 @@
 package servlets;
 
+import service.dto.UserDto;
+
 import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
@@ -17,12 +19,13 @@ public class MyServlet extends HttpServlet {
     @Override
     protected void doPost(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
-//        HttpSession session = request.getSession();
+        HttpSession session = request.getSession();
 
         String id = request.getParameter("id");
         String name = request.getParameter("name");
         String email = request.getParameter("email");
         String password = request.getParameter("pass");
+        UserDto user = (UserDto) session.getAttribute("user");
 
         PrintWriter writer = response.getWriter();
 
@@ -32,6 +35,11 @@ public class MyServlet extends HttpServlet {
         writer.println("name " + name);
         writer.println("email " + email);
         writer.println("password " + password);
+        writer.println();
+        writer.println(user.getId());
+        writer.println(user.getName());
+        writer.println(user.getEmail());
+        writer.println(user.getPassword());
     }
 
     @Override
