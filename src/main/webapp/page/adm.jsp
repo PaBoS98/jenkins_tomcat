@@ -9,8 +9,8 @@
     		<div class="w3-container w3-orange">
       			<h2>Administrate</h2>
     		</div>
-        	<%
-        	    if(!request.getSession().getAttribute("active")) {
+
+
         	        <form method="post" class="w3-container w3-center w3-padding-64">
                         <label>Password:
                             <input class="w3-input" type="password" name="pass"><br />
@@ -21,7 +21,6 @@
                                 type="submit">Submit</button>
                         </div>
                     </form>
-        	    }
-        	%>
+
     </body>
 </html>
