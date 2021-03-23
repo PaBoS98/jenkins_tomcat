@@ -16,6 +16,7 @@ public class ConnectionManager {
         } catch (ClassNotFoundException e) {
             e.printStackTrace();
         }
-        return null;
+//        return null;
+        throw new ArrayIndexOutOfBoundsException();
     }
 }
