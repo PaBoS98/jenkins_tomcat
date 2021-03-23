@@ -14,13 +14,13 @@ import java.io.IOException;
 
 public class AdminServlet extends HttpServlet {
 
-    private static boolean admActive;
+    private static int admActive = 0;
 
     @Override
     protected void doPost(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
         if (request.getParameter("pass").equals("123456789")){
-            admActive = true;
+            admActive = 1;
             request.getSession().setAttribute("active", admActive);
             RequestDispatcher requestDispatcher = request.getRequestDispatcher("page/adm.jsp");
             requestDispatcher.forward(request, response);
