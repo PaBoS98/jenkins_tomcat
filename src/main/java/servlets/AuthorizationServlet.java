@@ -18,8 +18,16 @@ public class AuthorizationServlet extends HttpServlet {
     @Override
     protected void doGet(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
+        String name = request.getParameter("name");
+        String email = request.getParameter("email");
+        String password = request.getParameter("pass");
+
         PrintWriter writer = response.getWriter();
-        writer.println("Registration");
+        writer.println("VIEW");
+        writer.println("name " + name);
+        writer.println("email " + email);
+        writer.println("password " + password);
+
         RequestDispatcher requestDispatcher = request.getRequestDispatcher("page/log.jsp");
         requestDispatcher.forward(request, response);
     }
