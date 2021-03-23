@@ -1,5 +1,6 @@
 package servlets;
 
+import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
@@ -12,13 +13,20 @@ public class RegistrationServlet extends HttpServlet {
     @Override
     protected void doPost(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
-        super.doPost(request, response);
+        String name = request.getParameter("name");
+        String email = request.getParameter("email");
+        String password = request.getParameter("pass");
+
+        RequestDispatcher requestDispatcher = request.getRequestDispatcher("/shop");
+        requestDispatcher.forward(request, response);
     }
 
     @Override
     protected void doGet(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
         PrintWriter writer = response.getWriter();
-        writer.println("Method GET from registration");
+        writer.println("Registration");
+        RequestDispatcher requestDispatcher = request.getRequestDispatcher("page/reg.jsp");
+        requestDispatcher.forward(request, response);
     }
 }

@@ -22,14 +22,25 @@ public class MyServlet extends HttpServlet {
     @Override
     protected void doGet(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
-        response.setContentType("text/html");
 
-        String varTextA = "Hello World!";
-        request.setAttribute("textA", varTextA);
-        String varTextB = "From Servlet!!";
-        request.setAttribute("textB", varTextB);
+        String name = request.getParameter("name");
+        String email = request.getParameter("email");
+        String password = request.getParameter("pass");
 
-        RequestDispatcher dispatcher = request.getRequestDispatcher("/index.jsp");
-        dispatcher.forward(request, response);
+        PrintWriter writer = response.getWriter();
+        writer.println("VIEW");
+        writer.println("name " + name);
+        writer.println("email " + email);
+        writer.println("password " + password);
+
+//        response.setContentType("text/html");
+//
+//        String varTextA = "Hello World!";
+//        request.setAttribute("textA", varTextA);
+//        String varTextB = "From Servlet!!";
+//        request.setAttribute("textB", varTextB);
+//
+//        RequestDispatcher dispatcher = request.getRequestDispatcher("/index.jsp");
+//        dispatcher.forward(request, response);
     }
 }
