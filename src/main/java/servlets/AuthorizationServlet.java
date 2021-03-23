@@ -12,7 +12,7 @@ public class AuthorizationServlet extends HttpServlet {
     @Override
     protected void doPost(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
-        RequestDispatcher requestDispatcher = request.getRequestDispatcher("/aji");
+        RequestDispatcher requestDispatcher = request.getRequestDispatcher("/");
         requestDispatcher.forward(request, response);
     }
 
