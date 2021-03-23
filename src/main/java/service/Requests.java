@@ -1,6 +1,7 @@
 package service;
 
 import service.Entity.User;
+import service.dto.UserDto;
 
 import java.sql.*;
 import java.text.DateFormat;
@@ -24,6 +25,25 @@ public class Requests {
         prepareStatement.setString(3, user.getPassword());
         prepareStatement.executeUpdate();
         return true;
+    }
+
+    public UserDto findUser(String name, String password) throws SQLException {
+
+        Statement statement = connection.createStatement(ResultSet.TYPE_SCROLL_SENSITIVE, ResultSet.CONCUR_READ_ONLY);
+        ResultSet resultSet = statement.executeQuery("select * from users");
+
+        while (resultSet.next()) {
+            if (name.equals(resultSet.getString("name"))) {
+                if (password.equals(resultSet.getString("password"))) {
+                    return new UserDto.Builder()
+                            .setId(resultSet.getLong("id"))
+                            .setName(resultSet.getString("name"))
+                            .setEmail(resultSet.getString("email"))
+                            .setPassword(resultSet.getString("password")).build();
+                }
+            }
+        }
+        return null;
     }
 
 //    public boolean createProduct(Product product) throws SQLException {

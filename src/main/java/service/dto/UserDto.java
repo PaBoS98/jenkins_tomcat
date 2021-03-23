@@ -39,21 +39,28 @@ public class UserDto {
         this.password = password;
     }
 
-    public UserDto(Builder order) {
-        this.name = name;
-        this.email = email;
-        this.password = password;
+    public UserDto(Builder userDto) {
+        this.id = userDto.id;
+        this.name = userDto.name;
+        this.email = userDto.email;
+        this.password = userDto.password;
 
 
     }
 
     public static class Builder {
 
+        private long id;
         private String name;
         private String email;
         private String password;
 
         public Builder() {
+        }
+
+        public Builder setId(long id) {
+            this.id = id;
+            return this;
         }
 
         public Builder setName(String name) {

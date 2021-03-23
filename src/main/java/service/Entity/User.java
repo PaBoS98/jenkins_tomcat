@@ -30,10 +30,10 @@ public class User {
         this.password = password;
     }
 
-    public User(Builder order) {
-        this.name = order.name;
-        this.email = order.email;
-        this.password = order.password;
+    public User(Builder user) {
+        this.name = user.name;
+        this.email = user.email;
+        this.password = user.password;
 
 
     }
