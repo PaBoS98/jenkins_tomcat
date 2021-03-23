@@ -20,7 +20,7 @@ public class RegistrationServlet extends HttpServlet {
         request.setAttribute("email", email);
         request.setAttribute("password", password);
 
-        RequestDispatcher requestDispatcher = request.getRequestDispatcher("servlets/AuthorizationServlet");
+        RequestDispatcher requestDispatcher = request.getRequestDispatcher("/log");
         requestDispatcher.forward(request, response);
     }
 
