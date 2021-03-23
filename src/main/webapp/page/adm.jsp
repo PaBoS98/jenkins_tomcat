@@ -10,9 +10,9 @@
       			<h2>Administrate</h2>
     		</div>
         	<%
-        	    if(!request.getSession().getAttribute("active")) {
-        	        out.println("!!!!!");
-        	    }
-        	%>
+                for(int i = 0; i < 10; i++){
+                    out.println("<p>" + "Hello : " + i + "</p>");
+                }
+            %>
     </body>
 </html>
