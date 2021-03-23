@@ -1,5 +1,5 @@
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
-<%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <html>
     <head>
         <title>Administrate</title>
@@ -12,11 +12,8 @@
     		</div>
     		<%boolean active=request.getSession().getAttribute("active"); %>
 
-            <c:if active="true">
-                I see!  You  have a name.. well.. Hello
-            </c:if>
-            <c:if active="false">
-                I see!  You don't have a name.. well.. Hello no name
+            <c:if test="${active == false}">
+                <c:out value="14214124" />
             </c:if>
 
     </body>
