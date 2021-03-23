@@ -12,7 +12,8 @@ public class AuthorizationServlet extends HttpServlet {
     @Override
     protected void doPost(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
-
+        RequestDispatcher requestDispatcher = request.getRequestDispatcher("page/log.jsp");
+        requestDispatcher.forward(request, response);
     }
 
     @Override
@@ -28,7 +29,7 @@ public class AuthorizationServlet extends HttpServlet {
 //        writer.println("email " + email);
 //        writer.println("password " + password);
 
-        RequestDispatcher requestDispatcher = request.getRequestDispatcher("page/log.jsp");
-        requestDispatcher.forward(request, response);
+//        RequestDispatcher requestDispatcher = request.getRequestDispatcher("page/log.jsp");
+//        requestDispatcher.forward(request, response);
     }
 }
