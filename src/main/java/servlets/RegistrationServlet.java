@@ -20,12 +20,8 @@ public class RegistrationServlet extends HttpServlet {
     @Override
     protected void doPost(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
-        new ReadFromProperties();
-        Requests r = new Requests(new ConnectionManager().getConnection(
-                ReadFromProperties.getURL(),
-                ReadFromProperties.getUserName(),
-                ReadFromProperties.getPASSWORD()
-        ));
+//        new ReadFromProperties();
+        Requests r = new Requests(new ConnectionManager().getConnection());
 
         User user = new User.Builder()
                 .setName(request.getParameter("name"))
