@@ -11,7 +11,7 @@
       			<h2>Administrate</h2>
     		</div>
 
-            <c:if test="${active == true}">
+            <c:if test="${active == false}">
                 <c:out value="14214124" />
             </c:if>
 
