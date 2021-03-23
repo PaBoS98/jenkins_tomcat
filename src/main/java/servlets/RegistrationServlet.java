@@ -1,5 +1,11 @@
 package servlets;
 
+import lombok.SneakyThrows;
+import service.ConnectionManager;
+import service.Entity.User;
+import service.ReadFromProperties;
+import service.Requests;
+
 import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
 import javax.servlet.http.HttpServlet;
@@ -10,17 +16,23 @@ import java.io.PrintWriter;
 
 public class RegistrationServlet extends HttpServlet {
 
+    @SneakyThrows
     @Override
     protected void doPost(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
-//        String name = request.getParameter("name");
-//        String email = request.getParameter("email");
-//        String password = request.getParameter("pass");
-//        request.setAttribute("name", name);
-//        request.setAttribute("email", email);
-//        request.setAttribute("password", password);
+        Requests r = new Requests(new ConnectionManager().getConnection(
+                ReadFromProperties.getURL(),
+                ReadFromProperties.getUserName(),
+                ReadFromProperties.getPASSWORD()
+        ));
 
-        RequestDispatcher requestDispatcher = request.getRequestDispatcher("/aji");
+        User user = new User.Builder()
+                .setName(request.getParameter("name"))
+                .setEmail(request.getParameter("email"))
+                .setPassword(request.getParameter("pass")).build();
+        r.createUser(user);
+
+        RequestDispatcher requestDispatcher = request.getRequestDispatcher("/");
         requestDispatcher.forward(request, response);
     }
 
