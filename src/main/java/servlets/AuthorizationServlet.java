@@ -28,11 +28,6 @@ public class AuthorizationServlet extends HttpServlet {
                 );
 
         HttpSession session = request.getSession();
-
-        request.setAttribute("id", user.getId());
-        request.setAttribute("name", user.getName());
-        request.setAttribute("email", user.getEmail());
-        request.setAttribute("pass", user.getPassword());
         session.setAttribute("user", user);
 
         RequestDispatcher requestDispatcher = request.getRequestDispatcher("/user");

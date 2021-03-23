@@ -20,26 +20,16 @@ public class MyServlet extends HttpServlet {
     protected void doPost(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
         HttpSession session = request.getSession();
-
-        String id = request.getParameter("id");
-        String name = request.getParameter("name");
-        String email = request.getParameter("email");
-        String password = request.getParameter("pass");
         UserDto user = (UserDto) session.getAttribute("user");
 
         PrintWriter writer = response.getWriter();
 
-        writer.println("HELLO! " + name);
+        writer.println("HELLO! " + user.getName());
         writer.println("Your account");
-        writer.println("id " + id);
-        writer.println("name " + name);
-        writer.println("email " + email);
-        writer.println("password " + password);
-        writer.println();
-        writer.println(user.getId());
-        writer.println(user.getName());
-        writer.println(user.getEmail());
-        writer.println(user.getPassword());
+        writer.println("id " + user.getId());
+        writer.println("name " + user.getName());
+        writer.println("email " + user.getEmail());
+        writer.println("password " + user.getPassword());
     }
 
     @Override
