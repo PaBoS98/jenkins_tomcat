@@ -13,12 +13,12 @@ public class RegistrationServlet extends HttpServlet {
     @Override
     protected void doPost(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
-        String name = request.getParameter("name");
-        String email = request.getParameter("email");
-        String password = request.getParameter("pass");
-        request.setAttribute("name", name);
-        request.setAttribute("email", email);
-        request.setAttribute("password", password);
+//        String name = request.getParameter("name");
+//        String email = request.getParameter("email");
+//        String password = request.getParameter("pass");
+//        request.setAttribute("name", name);
+//        request.setAttribute("email", email);
+//        request.setAttribute("password", password);
 
         RequestDispatcher requestDispatcher = request.getRequestDispatcher("/log");
         requestDispatcher.forward(request, response);
