@@ -10,7 +10,7 @@
       			<h2>Administrate</h2>
     		</div>
         	<%
-                if(!request.getSession().getAttribute("active")){
+                if(true)){
                     out.println("<p>" + "Hello : " + i + "</p>");
                 }
             %>
