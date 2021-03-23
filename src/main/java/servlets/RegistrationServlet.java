@@ -19,10 +19,8 @@ public class RegistrationServlet extends HttpServlet {
 //        request.setAttribute("name", name);
 //        request.setAttribute("email", email);
 //        request.setAttribute("password", password);
-        PrintWriter writer = response.getWriter();
-        writer.println("RegistrationServlet");
 
-        RequestDispatcher requestDispatcher = request.getRequestDispatcher("page/log.jsp");
+        RequestDispatcher requestDispatcher = request.getRequestDispatcher("/aji");
         requestDispatcher.forward(request, response);
     }
 
