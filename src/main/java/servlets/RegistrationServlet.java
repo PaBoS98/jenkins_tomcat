@@ -16,6 +16,9 @@ public class RegistrationServlet extends HttpServlet {
         String name = request.getParameter("name");
         String email = request.getParameter("email");
         String password = request.getParameter("pass");
+        request.setAttribute("name", name);
+        request.setAttribute("email", email);
+        request.setAttribute("password", password);
 
         RequestDispatcher requestDispatcher = request.getRequestDispatcher("page/log.jsp");
         requestDispatcher.forward(request, response);
