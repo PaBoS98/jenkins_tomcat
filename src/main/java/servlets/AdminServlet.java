@@ -39,7 +39,8 @@ public class AdminServlet extends HttpServlet {
             op = "del";
         }
         if (request.getParameter("op").equals("log")) {
-            op = "log";
+            RequestDispatcher requestDispatcher = request.getRequestDispatcher("page/admLog.jsp");
+            requestDispatcher.forward(request, response);
         }
 
         request.setAttribute("op", op);
