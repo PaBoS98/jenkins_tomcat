@@ -14,8 +14,8 @@
 
     		<div class="w3-center w3-teal">
                 <div class="w3-bar w3-padding-large w3-padding-64">
-                    <button style="border:8px solid white" class="w3-xlarge w3-white w3-round-large w3-hover-shadow w3-hover-border-green" onclick="location.href='/aji/log'">Delete</button>
-                    <button style="border:8px solid white" class="w3-xlarge w3-white w3-round-large w3-hover-shadow w3-hover-border-green" onclick="location.href='/aji/reg'">Sort</button>
+                    <button style="border:8px solid white" class="w3-xlarge w3-white w3-round-large w3-hover-shadow w3-hover-border-green" onclick="location.href='/aji/admr'">Delete</button>
+                    <button style="border:8px solid white" class="w3-xlarge w3-white w3-round-large w3-hover-shadow w3-hover-border-green" onclick="location.href='/aji/adm'">Sort</button>
                     <button style="border:8px solid white" class="w3-xlarge w3-white w3-round-large w3-hover-shadow w3-hover-border-green" onclick="location.href='/aji/adm'">Show all users</button>
                 </div>
             </div>
