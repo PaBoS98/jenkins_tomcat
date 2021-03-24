@@ -30,8 +30,8 @@ public class AdminServlet extends HttpServlet {
         PrintWriter p = response.getWriter();
 
         if (request.getParameter("op").equals("sort")) request.setAttribute("op", "sort");
-        if (request.getParameter("op").equals("show")) p.print("show");
-        if (request.getParameter("op").equals("del")) p.print("del");
+        if (request.getParameter("op").equals("show")) request.setAttribute("op", "show");
+        if (request.getParameter("op").equals("del")) request.setAttribute("op", "del");
         if (request.getParameter("op").equals("log")) {
             RequestDispatcher requestDispatcher = request.getRequestDispatcher("page/admLog.jsp");
             requestDispatcher.forward(request, response);
