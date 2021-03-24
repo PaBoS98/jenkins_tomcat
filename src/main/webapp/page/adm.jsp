@@ -24,6 +24,8 @@
                 String a = request.getParameter("op");
             %>
 
+            <%= a %>
+
             <c:choose>
                 <c:when test="${a == sort}">
                    sort
