@@ -1,5 +1,6 @@
 package servlets;
 
+import lombok.SneakyThrows;
 import service.ConnectionManager;
 import service.Requests;
 import service.dto.UserDto;
@@ -14,12 +15,18 @@ import java.io.PrintWriter;
 
 public class AdminServlet extends HttpServlet {
 
+    @SneakyThrows
     @Override
     protected void doPost(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
         if (request.getParameter("pass").equals("123456789")){
             RequestDispatcher requestDispatcher = request.getRequestDispatcher("page/adm.jsp");
             requestDispatcher.forward(request, response);
+        }
+
+        if (request.getParameter("id") != null) {
+            Requests r = new Requests(new ConnectionManager().getConnection());
+            r.deleteUser(Integer.parseInt(request.getParameter("id")));
         }
     }
 

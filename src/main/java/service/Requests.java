@@ -46,6 +46,13 @@ public class Requests {
         return null;
     }
 
+    public String deleteUser(int id) throws SQLException {
+        Statement statement = connection.createStatement();
+        statement.executeUpdate("delete from users where id = " + id);
+
+        return "Success";
+    }
+
 //    public boolean createProduct(Product product) throws SQLException {
 //        prepareStatement = connection.prepareStatement("insert into products(name, price, status, created_at) values (?, ?, ?, ?)");
 //        prepareStatement.setString(1, product.getName());
