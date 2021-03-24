@@ -11,6 +11,9 @@
       			<h2>Administrate</h2>
     		</div>
 
+            <c:set var="user" scope="session" value="Sergey" />
+            <c:out value="${user}" />
+
             <c:if test="${active == 0}">
                 <c:out value="14214124" />
             </c:if>
