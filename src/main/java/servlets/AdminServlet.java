@@ -32,8 +32,11 @@ public class AdminServlet extends HttpServlet {
         if (request.getParameter("op").equals("sort")) p.print("sort");
         if (request.getParameter("op").equals("show")) p.print("show");
         if (request.getParameter("op").equals("del")) p.print("del");
+        if (request.getParameter("op").equals("log")) {
+            RequestDispatcher requestDispatcher = request.getRequestDispatcher("page/admLog.jsp");
+            requestDispatcher.forward(request, response);
+        }
 
-        RequestDispatcher requestDispatcher = request.getRequestDispatcher("page/admLog.jsp");
-        requestDispatcher.forward(request, response);
+
     }
 }
