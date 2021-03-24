@@ -11,15 +11,18 @@
       			<h2>Administrate</h2>
     		</div>
 
-            <%request.getSession().getAttribute("active")%>
+            <% int i = request.getSession().getAttribute("active") %>
 
-            <c:set var="user" scope="session" value="test"  />
-            <c:out value="${user}" />
-
-            <c:if test="${user} == test">
-                <c:out value="14214124" />
-            </c:if>
-
-            <c:out value="52145212" />
+            <c:choose>
+                <c:when test="${i == 1}">
+                   Переменная alter 1
+                </c:when>
+                <c:when test="${i > 0}">
+                    Переменная alter 0
+                </c:when>
+                <c:otherwise>
+                    Не выбрано ни одно условие.
+                </c:otherwise>
+            </c:choose>
     </body>
 </html>
