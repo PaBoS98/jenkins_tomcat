@@ -24,7 +24,9 @@ public class AdminServlet extends HttpServlet {
             requestDispatcher.forward(request, response);
         }
 
-        if (request.getParameter("id") != null) {
+        if (request.getParameter("op").equals("del")) {
+            RequestDispatcher requestDispatcher = request.getRequestDispatcher("/");
+            requestDispatcher.forward(request, response);
             Requests r = new Requests(new ConnectionManager().getConnection());
             r.deleteUser(Integer.parseInt(request.getParameter("id")));
         }
