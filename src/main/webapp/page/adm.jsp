@@ -11,10 +11,12 @@
       			<h2>Administrate</h2>
     		</div>
 
-            <c:set var="user" scope="session" value= <%request.getSession().getAttribute("active")%> />
+            <%request.getSession().getAttribute("active")%>
+
+            <c:set var="user" scope="session" value="test"  />
             <c:out value="${user}" />
 
-            <c:if test="${active == 0}">
+            <c:if test="${user} == test">
                 <c:out value="14214124" />
             </c:if>
 
