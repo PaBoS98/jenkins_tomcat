@@ -37,6 +37,9 @@ public class AdminServlet extends HttpServlet {
             requestDispatcher.forward(request, response);
         }
 
+        RequestDispatcher requestDispatcher = request.getRequestDispatcher("page/adm.jsp");
+        requestDispatcher.forward(request, response);
+
 
     }
 }
