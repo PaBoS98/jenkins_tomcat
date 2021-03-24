@@ -21,7 +21,8 @@ public class AdminServlet extends HttpServlet {
             throws ServletException, IOException {
         if (request.getParameter("pass").equals("123456789")){
             admActive = 1;
-            request.getSession().setAttribute("active", admActive);
+//            request.getSession().setAttribute("active", admActive);
+            request.setAttribute("active", admActive);
             RequestDispatcher requestDispatcher = request.getRequestDispatcher("page/adm.jsp");
             requestDispatcher.forward(request, response);
         }
