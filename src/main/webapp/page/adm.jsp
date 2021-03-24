@@ -11,7 +11,7 @@
       			<h2>Administrate</h2>
     		</div>
 
-            <c:set var="user" scope="session" value=request.getSession().getAttribute("active") />
+            <c:set var="user" scope="session" value="request.getSession().getAttribute("active")" />
             <c:out value="${user}" />
 
             <c:if test="${active == 0}">
