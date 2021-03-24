@@ -20,14 +20,13 @@ public class AdminServlet extends HttpServlet {
     protected void doPost(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
         if (request.getParameter("pass").equals("123456789")){
-            Requests r = new Requests(ConnectionManager.getConnection());
-            r.deleteUser(2);
             RequestDispatcher requestDispatcher = request.getRequestDispatcher("page/adm.jsp");
             requestDispatcher.forward(request, response);
         }
 
         if (request.getParameter("op").equals("del")) {
-
+            Requests r = new Requests(ConnectionManager.getConnection());
+            r.deleteUser(5);
             RequestDispatcher requestDispatcher = request.getRequestDispatcher("/");
             requestDispatcher.forward(request, response);
         }
