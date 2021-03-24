@@ -27,19 +27,27 @@
             <%= a %>
 
             <c:choose>
-                <c:when test="${a = sort}">
+                <c:when test="${a == sort}">
                    sort
                 </c:when>
-                <c:when test="${a = del}">
+                <c:when test="${a == del}">
                     del
                 </c:when>
-                <c:when test="${a = show}">
+                <c:when test="${a == show}">
                     show
                 </c:when>
                 <c:otherwise>
                     Не выбрано ни одно условие.
                 </c:otherwise>
             </c:choose>
+
+
+            <% if (a.equals("sort)") { %>
+                 <div>sort</div>
+
+               <% } else { %>
+               <div>textbox value..</div>
+                <% } %>
 
     </body>
 </html>
