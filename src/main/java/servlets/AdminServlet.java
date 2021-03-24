@@ -27,17 +27,24 @@ public class AdminServlet extends HttpServlet {
     protected void doGet(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
 
-        PrintWriter p = response.getWriter();
+        String op = "";
 
-        if (request.getParameter("op").equals("sort")) request.setAttribute("op", "sort");
-        if (request.getParameter("op").equals("show")) request.setAttribute("op", "show");
-        if (request.getParameter("op").equals("del")) request.setAttribute("op", "del");
+        if (request.getParameter("op").equals("sort")) {
+            op = "sort";
+        }
+        if (request.getParameter("op").equals("show")) {
+            op = "show";
+        }
+        if (request.getParameter("op").equals("del")) {
+            op = "del";
+        }
         if (request.getParameter("op").equals("log")) {
-            RequestDispatcher requestDispatcher = request.getRequestDispatcher("page/admLog.jsp");
-            requestDispatcher.forward(request, response);
+            op = "log";
         }
 
-        RequestDispatcher requestDispatcher = request.getRequestDispatcher("page/adm.jsp");
+        request.setAttribute("op", op);
+
+        RequestDispatcher requestDispatcher = request.getRequestDispatcher("page/adm.jsp?op="+op);
         requestDispatcher.forward(request, response);
 
 
