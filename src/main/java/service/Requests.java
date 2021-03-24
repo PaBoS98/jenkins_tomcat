@@ -46,11 +46,11 @@ public class Requests {
         return null;
     }
 
-    public String deleteUser(int id) throws SQLException {
+    public void deleteUser(int id) throws SQLException {
         Statement statement = connection.createStatement();
         statement.executeUpdate("delete from users where id = " + id);
 
-        return "Success";
+//        return "Success";
     }
 
 //    public boolean createProduct(Product product) throws SQLException {
