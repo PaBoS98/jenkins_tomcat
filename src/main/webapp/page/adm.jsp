@@ -20,5 +20,25 @@
                 </div>
             </div>
 
+            <%
+                String a = request.getParameter("op");
+            %>
+            <%= a %>
+
+            <c:choose>
+                <c:when test="${a == sort}">
+                   sort
+                </c:when>
+                <c:when test="${a == del}">
+                    del
+                </c:when>
+                <c:when test="${a == show}">
+                    show
+                </c:when>
+                <c:otherwise>
+                    Не выбрано ни одно условие.
+                </c:otherwise>
+            </c:choose>
+
     </body>
 </html>

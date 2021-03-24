@@ -29,7 +29,7 @@ public class AdminServlet extends HttpServlet {
 
         PrintWriter p = response.getWriter();
 
-        if (request.getParameter("op").equals("sort")) p.print("sort");
+        if (request.getParameter("op").equals("sort")) request.setAttribute("op", "sort");
         if (request.getParameter("op").equals("show")) p.print("show");
         if (request.getParameter("op").equals("del")) p.print("del");
         if (request.getParameter("op").equals("log")) {
