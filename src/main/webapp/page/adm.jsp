@@ -14,6 +14,8 @@
       			<h2>Administrate</h2>
     		</div>
 
+    		<c:out value="${active}" />
+
     		<c:if test="${i == 1}" >
                 1
     		</c:if>
