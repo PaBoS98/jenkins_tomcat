@@ -20,6 +20,10 @@
         <servlet-name>AdminServlet</servlet-name>
         <servlet-class>servlets.AdminServlet</servlet-class>
     </servlet>
+    <servlet>
+        <servlet-name>DeleteServlet</servlet-name>
+        <servlet-class>servlets.DeleteServlet</servlet-class>
+    </servlet>
 
     <servlet-mapping>
         <servlet-name>MyServlet</servlet-name>
@@ -36,5 +40,9 @@
     <servlet-mapping>
     <servlet-name>AdminServlet</servlet-name>
     <url-pattern>/adm</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>DeleteServlet</servlet-name>
+        <url-pattern>/d</url-pattern>
     </servlet-mapping>
 </web-app>
