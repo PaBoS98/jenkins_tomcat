@@ -27,13 +27,13 @@
             <%= a %>
 
             <c:choose>
-                <c:when test="${a.equals(sort)}">
+                <c:when test="${a = sort}">
                    sort
                 </c:when>
-                <c:when test="${a.equals(del)}">
+                <c:when test="${a = del}">
                     del
                 </c:when>
-                <c:when test="${a == show}">
+                <c:when test="${a = show}">
                     show
                 </c:when>
                 <c:otherwise>
