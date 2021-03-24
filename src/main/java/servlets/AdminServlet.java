@@ -10,6 +10,7 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import java.io.IOException;
+import java.io.PrintWriter;
 
 public class AdminServlet extends HttpServlet {
 
@@ -26,6 +27,11 @@ public class AdminServlet extends HttpServlet {
     protected void doGet(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
 
+        PrintWriter p = response.getWriter();
+
+        if (request.getParameter("op").equals("sort")) p.print("sort");
+        if (request.getParameter("op").equals("show")) p.print("show");
+        if (request.getParameter("op").equals("del")) p.print("del");
 
         RequestDispatcher requestDispatcher = request.getRequestDispatcher("page/admLog.jsp");
         requestDispatcher.forward(request, response);
