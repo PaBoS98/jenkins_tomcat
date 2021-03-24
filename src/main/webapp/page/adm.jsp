@@ -1,5 +1,8 @@
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
+
+<% int i = request.getSession().getAttribute("active") %>
+
 <html>
     <head>
         <title>Administrate</title>
@@ -11,13 +14,19 @@
       			<h2>Administrate</h2>
     		</div>
 
-            <% int i = request.getSession().getAttribute("active") %>
+    		<c:if test="${i == 1}" >
+                1
+    		</c:if>
+
+    		<c:if test="${i == 0}" >
+                0
+            </c:if>
 
             <c:choose>
                 <c:when test="${i == 1}">
                    Переменная alter 1
                 </c:when>
-                <c:when test="${i > 0}">
+                <c:when test="${i == 0}">
                     Переменная alter 0
                 </c:when>
                 <c:otherwise>
