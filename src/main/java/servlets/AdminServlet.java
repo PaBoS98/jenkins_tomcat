@@ -11,6 +11,7 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 import java.io.IOException;
+import java.io.PrintWriter;
 
 public class AdminServlet extends HttpServlet {
 
@@ -32,7 +33,8 @@ public class AdminServlet extends HttpServlet {
     protected void doGet(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
 
-        RequestDispatcher requestDispatcher = request.getRequestDispatcher("page/adm.jsp");
+
+        RequestDispatcher requestDispatcher = request.getRequestDispatcher("page/admLog.jsp");
         requestDispatcher.forward(request, response);
     }
 }
