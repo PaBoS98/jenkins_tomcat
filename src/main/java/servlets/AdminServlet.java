@@ -25,10 +25,10 @@ public class AdminServlet extends HttpServlet {
         }
 
         if (request.getParameter("op").equals("del")) {
-            RequestDispatcher requestDispatcher = request.getRequestDispatcher("/");
-            requestDispatcher.forward(request, response);
             Requests r = new Requests(new ConnectionManager().getConnection());
             r.deleteUser(Integer.parseInt(request.getParameter("id")));
+            RequestDispatcher requestDispatcher = request.getRequestDispatcher("/");
+            requestDispatcher.forward(request, response);
         }
     }
 
