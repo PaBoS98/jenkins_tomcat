@@ -2,10 +2,12 @@ import service.ConnectionManager;
 import service.Entity.User;
 import service.ReadFromProperties;
 import service.Requests;
+import service.dto.UserDto;
 
 import java.io.IOException;
 import java.sql.Connection;
 import java.sql.SQLException;
+import java.util.List;
 
 public class Main {
 
@@ -17,9 +19,27 @@ public class Main {
 
         Requests r = new Requests(connection);
 
-        User u = new User.Builder().setName("sagwqgqw").setEmail("sagaw@gmaaw").setPassword("123445").build();
+//        User u = new User.Builder().setName("sagwqgqw").setEmail("sagaw@gmaaw").setPassword("123445").build();
+//
+//        r.createUser(u);
 
-        r.createUser(u);
+        List<UserDto> u = r.showAllUser();
+
+        System.out.println(u);
+
+//        <%
+//        List<UserDto> userList = (List<UserDto>) request.getAttribute("users");
+//        for(UserDto u : userList){
+//                %>
+//                <tr>
+//                    <td><%= u.getId()%></td>
+//                    <td><%= u.getName()%></td>
+//                    <td><%= u.getEmail()%></td>
+//                    <td><%= u.getPassword()%></td>
+//                </tr>
+//                <%
+//        }
+//                %>
 
 //        <c:if active="true">
 //                I see!  You  have a name.. well.. Hello

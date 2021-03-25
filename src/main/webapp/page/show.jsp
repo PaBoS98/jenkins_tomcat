@@ -31,20 +31,14 @@
                     <th>Password</th>
                 </tr>
 
-                <%
-                    List<UserDto> userList = (List<UserDto>) request.getAttribute("users");
-                    for(UserDto u : userList){
-                %>
-                <tr>
-                    <td><%= u.getId()%></td>
-                    <td><%= u.getName()%></td>
-                    <td><%= u.getEmail()%></td>
-                    <td><%= u.getPassword()%></td>
-                </tr>
-
-                <%
-                    }
-                %>
+                <c:forEach var="u" items="${listUser}">
+                    <tr>
+                        <td><%= u.getId()%></td>
+                        <td><%= u.getName()%></td>
+                        <td><%= u.getEmail()%></td>
+                        <td><%= u.getPassword()%></td>
+                    </tr>
+                </c:forEach>
             </table>
     </body>
 </html>

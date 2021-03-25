@@ -70,6 +70,26 @@ public class Requests {
         return users;
     }
 
+    public List<UserDto> sortedUsers() throws SQLException {
+        List<UserDto> users = new ArrayList<>();
+
+        Statement statement = connection.createStatement();
+        ResultSet resultSet = statement.executeQuery("select * from users order by name");
+        while (resultSet.next()) {
+            users.add(new UserDto.Builder()
+                    .setId(resultSet.getLong("id"))
+                    .setName(resultSet.getString("name"))
+                    .setEmail(resultSet.getString("email"))
+                    .setPassword(resultSet.getString("password")).build());
+        }
+
+
+
+        return users;
+    }
+
+
+
 
 
 //    public boolean createProduct(Product product) throws SQLException {
