@@ -6,6 +6,7 @@ import service.dto.UserDto;
 import java.sql.*;
 import java.text.DateFormat;
 import java.text.SimpleDateFormat;
+import java.util.ArrayList;
 import java.util.List;
 
 public class Requests {
@@ -46,12 +47,30 @@ public class Requests {
         return null;
     }
 
-    public void deleteUser(int id) throws SQLException {
+    public boolean deleteUser(int id) throws SQLException {
         Statement statement = connection.createStatement();
         statement.executeUpdate("delete from users where id = " + id);
 
-//        return "Success";
+        return true;
     }
+
+    public List<UserDto> showAllUser() throws SQLException {
+        List<UserDto> users = new ArrayList<>();
+
+        Statement statement = connection.createStatement();
+        ResultSet resultSet = statement.executeQuery("select * from users");
+        while (resultSet.next()) {
+            users.add(new UserDto.Builder()
+            .setId(resultSet.getLong("id"))
+            .setName(resultSet.getString("name"))
+            .setEmail(resultSet.getString("email"))
+            .setPassword(resultSet.getString("password")).build());
+        }
+
+        return users;
+    }
+
+
 
 //    public boolean createProduct(Product product) throws SQLException {
 //        prepareStatement = connection.prepareStatement("insert into products(name, price, status, created_at) values (?, ?, ?, ?)");

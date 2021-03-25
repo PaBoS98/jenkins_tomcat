@@ -19,5 +19,25 @@
                     <button style="border:8px solid white" class="w3-xlarge w3-white w3-round-large w3-hover-shadow w3-hover-border-green" onclick="location.href='/aji/adm?op=show'">Show all users</button>
                 </div>
             </div>
+
+            <table>
+                <thead>
+                    <tr>
+                        <th>ID</th>
+                        <th>Name</th>
+                        <th>Email</th>
+                        <th>Password</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <c:forEach var="user" items="${users}">
+                        <tr>
+                            <td><c:out value="${user.id}" /></td>
+                            <td><c:out value="${user.name}" /></td>
+                            <td><c:out value="${user.email}" /></td>
+                            <td><c:out value="${user.password}" /></td>
+                        </tr>
+                </tbody>
+            </table>
     </body>
 </html>

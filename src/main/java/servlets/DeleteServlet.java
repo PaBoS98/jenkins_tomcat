@@ -18,7 +18,6 @@ public class DeleteServlet extends HttpServlet {
     protected void doPost(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
 
-
             Requests r = new Requests(ConnectionManager.getConnection());
             r.deleteUser(Integer.parseInt(request.getParameter("id")));
             RequestDispatcher requestDispatcher = request.getRequestDispatcher("/");
