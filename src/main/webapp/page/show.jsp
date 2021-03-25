@@ -37,6 +37,7 @@
                             <td><c:out value="${user.email}" /></td>
                             <td><c:out value="${user.password}" /></td>
                         </tr>
+                    </c:forEach>
                 </tbody>
             </table>
     </body>
