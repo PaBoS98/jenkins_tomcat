@@ -21,7 +21,7 @@ public class ShowServlet extends HttpServlet {
         Requests r = new Requests(ConnectionManager.getConnection());
         List<UserDto> users = r.showAllUser();
 
-        req.setAttribute("users", users);
+        req.setAttribute("listUser", users);
         RequestDispatcher requestDispatcher = req.getRequestDispatcher("page/show.jsp");
         requestDispatcher.forward(req, resp);
     }

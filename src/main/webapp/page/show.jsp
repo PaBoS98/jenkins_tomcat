@@ -31,12 +31,12 @@
                     <th>Password</th>
                 </tr>
 
-                <c:forEach var="u" items="${listUser}">
+                <c:forEach var="user" items="${listUser}">
                     <tr>
-                        <td><%= u.getId()%></td>
-                        <td><%= u.getName()%></td>
-                        <td><%= u.getEmail()%></td>
-                        <td><%= u.getPassword()%></td>
+                        <td><c:out value="${user.id}" /></td>
+                        <td><c:out value="${user.name}" /></td>
+                        <td><c:out value="${user.email}" /></td>
+                        <td><c:out value="${user.password}" /></td>
                     </tr>
                 </c:forEach>
             </table>
