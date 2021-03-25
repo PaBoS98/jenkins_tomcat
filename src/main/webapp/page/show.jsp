@@ -23,29 +23,28 @@
                 </div>
             </div>
 
-            <div class="w3-center">
-                <table>
-                    <tr>
-                        <th>ID</th>
-                        <th>Name</th>
-                        <th>Email</th>
-                        <th>Password</th>
-                    </tr>
-                    <tr>
-                        <td><c:out value="tt" /></td>
-                        <td><c:out value="tt" /></td>
-                        <td><c:out value="tt" /></td>
-                        <td><c:out value="tt" /></td>
-                    </tr>
-                    <c:forEach var="user" items="${users}">
-                        <tr>
-                            <td>${user.id}</td>
-                            <td>${user.name}</td>
-                            <td>${user.email}</td>
-                            <td>${user.password}</td>
-                        </tr>
-                    </c:forEach>
-                </table>
-            </div>
+            <table>
+                <tr>
+                    <th>ID</th>
+                    <th>Name</th>
+                    <th>Email</th>
+                    <th>Password</th>
+                </tr>
+
+                <%
+                    List<UserDto> userList = (List<UserDto>) request.getAttribute("users");
+                    for(UserDto u : userList){
+                %>
+                <tr>
+                    <td><%= u.getId()%></td>
+                    <td><%= u.getName()%></td>
+                    <td><%= u.getEmail()%></td>
+                    <td><%= u.getPassword()%></td>
+                </tr>
+
+                <%
+                    }
+                %>
+            </table>
     </body>
 </html>

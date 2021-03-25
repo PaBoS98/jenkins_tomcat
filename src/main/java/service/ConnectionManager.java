@@ -7,6 +7,7 @@ import java.sql.SQLException;
 public class ConnectionManager {
 
     private static String URL = "jdbc:mysql://localhost:3306/userdb?useSSL=false&serverTimezone=UTC";
+//    private static String URL = "jdbc:mysql://localhost:3306/usersdb?useSSL=false&serverTimezone=UTC";
     private static String USER_NAME = "root";
     private static String PASSWORD = "rootroot";
 
