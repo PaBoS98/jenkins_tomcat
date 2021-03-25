@@ -20,8 +20,8 @@ public class DeleteServlet extends HttpServlet {
 
 
             Requests r = new Requests(ConnectionManager.getConnection());
-            r.deleteUser(5);
-            RequestDispatcher requestDispatcher = request.getRequestDispatcher("/");
+            r.deleteUser(Integer.parseInt(request.getParameter("id")));
+            RequestDispatcher requestDispatcher = request.getRequestDispatcher("/adm?op=log");
             requestDispatcher.forward(request, response);
 
     }

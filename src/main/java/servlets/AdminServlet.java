@@ -23,13 +23,6 @@ public class AdminServlet extends HttpServlet {
             RequestDispatcher requestDispatcher = request.getRequestDispatcher("page/adm.jsp");
             requestDispatcher.forward(request, response);
         }
-
-        if (request.getParameter("op").equals("del")) {
-//            Requests r = new Requests(ConnectionManager.getConnection());
-//            r.deleteUser(5);
-            PrintWriter w = response.getWriter();
-            w.println("I want delete " + request.getParameter("id"));
-        }
     }
 
     @Override
