@@ -20,7 +20,7 @@
                 </div>
             </div>
 
-            <form method="post" class="w3-container w3-center w3-padding-64">
+            <form action="d" method="post" class="w3-container w3-center w3-padding-64">
                 <label>ID:
                     <input class="w3-input" type="text" name="id"><br />
                 </label>
