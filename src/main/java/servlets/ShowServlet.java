@@ -20,6 +20,8 @@ public class ShowServlet extends HttpServlet {
     protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
         Requests r = new Requests(ConnectionManager.getConnection());
         List<UserDto> users = r.showAllUser();
+
+        req.setAttribute("users", users);
         RequestDispatcher requestDispatcher = req.getRequestDispatcher("page/show.jsp");
         requestDispatcher.forward(req, resp);
     }
