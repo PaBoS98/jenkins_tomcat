@@ -1,3 +1,6 @@
+<%@ page import="service.dto.UserDto" %>
+<%@ page import="java.util.List" %>
+
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 
@@ -20,25 +23,23 @@
                 </div>
             </div>
 
-            <table>
-                <thead>
+            <div class="w3-center">
+                <table>
                     <tr>
                         <th>ID</th>
                         <th>Name</th>
                         <th>Email</th>
                         <th>Password</th>
                     </tr>
-                </thead>
-                <tbody>
                     <c:forEach var="user" items="${users}">
                         <tr>
-                            <td><c:out value="${user.id}" /></td>
-                            <td><c:out value="${user.name}" /></td>
-                            <td><c:out value="${user.email}" /></td>
-                            <td><c:out value="${user.password}" /></td>
+                            <td>${user.id}</td>
+                            <td>${user.name}</td>
+                            <td>${user.email}</td>
+                            <td>${user.password}</td>
                         </tr>
                     </c:forEach>
-                </tbody>
-            </table>
+                </table>
+            </div>
     </body>
 </html>
