@@ -32,10 +32,10 @@
                         <th>Password</th>
                     </tr>
                     <tr>
-                        <td>tt</td>
-                        <td>tt</td>
-                        <td>tt</td>
-                        <td>tt</td>
+                        <td><c:out value="tt" /></td>
+                        <td><c:out value="tt" /></td>
+                        <td><c:out value="tt" /></td>
+                        <td><c:out value="tt" /></td>
                     </tr>
                     <c:forEach var="user" items="${users}">
                         <tr>
