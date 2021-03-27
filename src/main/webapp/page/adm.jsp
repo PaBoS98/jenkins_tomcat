@@ -14,10 +14,13 @@
 
     		<div class="w3-center w3-teal">
                 <div class="w3-bar w3-padding-large w3-padding-64">
-                    <button style="border:8px solid white" class="w3-xlarge w3-white w3-round-large w3-hover-shadow w3-hover-border-green" onclick="location.href='/aji/adm?op=del'">Delete</button>
-                    <button style="border:8px solid white" class="w3-xlarge w3-white w3-round-large w3-hover-shadow w3-hover-border-green" onclick="location.href='/aji/adm?op=sort'">Sort</button>
-                    <button style="border:8px solid white" class="w3-xlarge w3-white w3-round-large w3-hover-shadow w3-hover-border-green" onclick="location.href='/aji/adm?op=show'">Show all users</button>
+                    <button style="border:8px solid white" class="w3-xlarge w3-white w3-round-large w3-hover-shadow w3-hover-border-green" onclick="location.href='/aji/adm?action=sort'">Sort</button>
+                    <button style="border:8px solid white" class="w3-xlarge w3-white w3-round-large w3-hover-shadow w3-hover-border-green" onclick="location.href='/aji/adm?action=show'">Show all users</button>
                 </div>
             </div>
+
+            <footer style="width:100%; padding: 10px;">
+                <button style="border:8px solid white" class="w3-jumbo w3-red w3-round-large w3-hover-shadow w3-hover-border-green" onclick="location.href='/aji'">Back to menu</button>
+            </footer>
     </body>
 </html>

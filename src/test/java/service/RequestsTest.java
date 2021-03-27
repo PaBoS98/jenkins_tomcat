@@ -9,9 +9,9 @@ import org.mockito.Mockito;
 import service.Entity.User;
 import service.dto.UserDto;
 
-import java.sql.Connection;
-import java.sql.DriverManager;
-import java.sql.SQLException;
+import java.sql.*;
+import java.util.ArrayList;
+import java.util.List;
 
 public class RequestsTest {
 
@@ -21,7 +21,7 @@ public class RequestsTest {
 
     @BeforeEach
     void init() throws SQLException {
-        Connection connection = DriverManager.getConnection("jdbc:mysql://localhost:3306/usersdb?useSSL=false&serverTimezone=UTC", "root", "rootroot");
+        connection = DriverManager.getConnection("jdbc:mysql://localhost:3306/usersdb?useSSL=false&serverTimezone=UTC", "root", "rootroot");
 
         r = new Requests(connection);
     }
@@ -54,5 +54,28 @@ public class RequestsTest {
 
         Assertions.assertTrue(r.deleteUser((int) u.getId()));
         Assertions.assertNull(r.findUser(u.getName(), u.getPassword()));
+    }
+
+    @Test
+    void sortedUsersTest() throws SQLException {
+        List<UserDto> u = new ArrayList<>();
+        Statement statement = connection.createStatement();
+        ResultSet resultSet = statement.executeQuery("select * from users order by name");
+        while (resultSet.next()) {
+            u.add(new UserDto.Builder()
+                    .setId(resultSet.getLong("id"))
+                    .setName(resultSet.getString("name"))
+                    .setEmail(resultSet.getString("email"))
+                    .setPassword(resultSet.getString("password")).build());
+        }
+
+        List<UserDto> test = r.sortedUsers();
+
+        Assertions.assertEquals(u.size(), test.size());
+        if (test.size() == u.size()) {
+            for (int i = 0; i < test.size(); i++) {
+                Assertions.assertEquals(test.get(i), u.get(i));
+            }
+        }
     }
 }

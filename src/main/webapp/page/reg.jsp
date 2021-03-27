@@ -9,7 +9,7 @@
     		<div class="w3-container w3-orange">
       			<h2>Registration Form</h2>
     		</div>
-        	<form method="post" class="w3-container w3-center w3-padding-64">
+        	<form action="main?action=reg" method="post" class="w3-container w3-center w3-padding-64">
                 <label>Name:
                     <input class="w3-input" type="text" name="name"><br />
                 </label>

@@ -7,25 +7,31 @@ import service.dto.UserDto;
 import java.io.IOException;
 import java.sql.Connection;
 import java.sql.SQLException;
+import java.util.HashMap;
 import java.util.List;
+import java.util.Map;
 
 public class Main {
 
     public static void main(String[] args) throws SQLException, IOException {
 
+        Map<String, String> m = new HashMap<>();
+
+        System.out.println(m.size());
+
 //        new ReadFromProperties();
 
-        Connection connection = ConnectionManager.getConnection();
-
-        Requests r = new Requests(connection);
-
-//        User u = new User.Builder().setName("sagwqgqw").setEmail("sagaw@gmaaw").setPassword("123445").build();
+//        Connection connection = ConnectionManager.getConnection();
 //
-//        r.createUser(u);
-
-        List<UserDto> u = r.showAllUser();
-
-        System.out.println(u);
+//        Requests r = new Requests(connection);
+//
+////        User u = new User.Builder().setName("sagwqgqw").setEmail("sagaw@gmaaw").setPassword("123445").build();
+////
+////        r.createUser(u);
+//
+//        List<UserDto> u = r.showAllUser();
+//
+//        System.out.println(u);
 
 //        <%
 //        List<UserDto> userList = (List<UserDto>) request.getAttribute("users");

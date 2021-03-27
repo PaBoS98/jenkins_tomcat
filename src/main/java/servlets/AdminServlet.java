@@ -1,9 +1,8 @@
 package servlets;
 
 import lombok.SneakyThrows;
-import service.ConnectionManager;
 import service.Requests;
-import service.dto.UserDto;
+import service.command.*;
 
 import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
@@ -11,51 +10,31 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import java.io.IOException;
-import java.io.PrintWriter;
+import java.util.HashMap;
+import java.util.Map;
 
 public class AdminServlet extends HttpServlet {
+    static Map<String, Command> actions = new HashMap<>();
+    static {
+
+        actions.put("del", new Delete());
+        actions.put("sort", new Sort());
+        actions.put("show", new Show());
+        actions.put("admLog", new AdministrateAuthorization());
+    }
 
     @SneakyThrows
     @Override
-    protected void doPost(HttpServletRequest request, HttpServletResponse response)
-            throws ServletException, IOException {
-        if (request.getParameter("pass").equals("123456789")){
-            RequestDispatcher requestDispatcher = request.getRequestDispatcher("page/adm.jsp");
-            requestDispatcher.forward(request, response);
-        }
+    protected void doPost(HttpServletRequest request, HttpServletResponse response) {
+        actions.get(request.getParameter("action")).action(request, response, "post").forward(request, response);
     }
 
+    @SneakyThrows
     @Override
-    protected void doGet(HttpServletRequest request, HttpServletResponse response)
-            throws ServletException, IOException {
+    protected void doGet(HttpServletRequest request, HttpServletResponse response) {
+        String action = request.getParameter("action");
 
-//        String op = "";
-
-        if (request.getParameter("op").equals("sort")) {
-//            op = "sort";
-            RequestDispatcher requestDispatcher = request.getRequestDispatcher("page/sort.jsp");
-            requestDispatcher.forward(request, response);
-        }
-        if (request.getParameter("op").equals("show")) {
-//            op = "show";
-            RequestDispatcher requestDispatcher = request.getRequestDispatcher("page/show.jsp");
-            requestDispatcher.forward(request, response);
-        }
-        if (request.getParameter("op").equals("del")) {
-//            op = "del";
-            RequestDispatcher requestDispatcher = request.getRequestDispatcher("page/delete.jsp");
-            requestDispatcher.forward(request, response);
-        }
-        if (request.getParameter("op").equals("log")) {
-            RequestDispatcher requestDispatcher = request.getRequestDispatcher("page/admLog.jsp");
-            requestDispatcher.forward(request, response);
-        }
-
-//        request.setAttribute("op", op);
-
-//        RequestDispatcher requestDispatcher = request.getRequestDispatcher("page/adm.jsp?op="+op);
-//        requestDispatcher.forward(request, response);
-
-
+//        VisitorServlet.actions.get(action).action(request, response, "get").forward(request, response);
+        actions.get(action).action(request, response, "get").forward(request, response);
     }
 }

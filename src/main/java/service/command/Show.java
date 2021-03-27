@@ -1,28 +1,24 @@
-package servlets;
+package service.command;
 
-import lombok.SneakyThrows;
 import service.ConnectionManager;
 import service.Requests;
 import service.dto.UserDto;
 
 import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
-import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import java.io.IOException;
+import java.sql.SQLException;
 import java.util.List;
 
-public class ShowServlet extends HttpServlet {
-
-    @SneakyThrows
+public class Show implements Command {
     @Override
-    protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
+    public RequestDispatcher action(HttpServletRequest request, HttpServletResponse response, String type) throws SQLException, ServletException, IOException {
         Requests r = new Requests(ConnectionManager.getConnection());
         List<UserDto> users = r.showAllUser();
+        request.setAttribute("listUser", users);
+        return request.getRequestDispatcher("page/show.jsp");
 
-        req.setAttribute("listUser", users);
-        RequestDispatcher requestDispatcher = req.getRequestDispatcher("page/show.jsp");
-        requestDispatcher.forward(req, resp);
     }
 }
