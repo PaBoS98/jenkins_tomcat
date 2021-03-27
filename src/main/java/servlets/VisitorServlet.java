@@ -3,7 +3,6 @@ package servlets;
 import lombok.SneakyThrows;
 import service.command.*;
 
-import javax.servlet.ServletException;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
@@ -43,17 +42,5 @@ public class VisitorServlet extends HttpServlet {
     protected void doGet(HttpServletRequest request, HttpServletResponse response) {
         action = request.getParameter("action");
         actions.get(action).action(request, response, "get").forward(request, response);
-
-//        switch (action) {
-//            case "reg":
-//                request.getRequestDispatcher("page/reg.jsp").forward(request, response);
-//                break;
-//            case "log":
-//                request.getRequestDispatcher("page/log.jsp").forward(request, response);
-//                break;
-//            case "admLog":
-//                request.getRequestDispatcher("page/admLog.jsp").forward(request, response);
-//                break;
-//        }
     }
 }

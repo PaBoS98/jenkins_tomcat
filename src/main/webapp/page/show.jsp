@@ -24,7 +24,7 @@
 
             <table class="w3-table-all w3-hoverable w3-card-4">
                 <tr class="w3-red">
-                    <th class="w3-center">ID</th>
+                    <th class="w3-center ">ID</th>
                     <th class="w3-center">Name</th>
                     <th class="w3-center">Email</th>
                     <th class="w3-center">Password</th>
@@ -36,10 +36,10 @@
                     for(UserDto u : userList){
                 %>
                 <tr>
-                    <td class="w3-center w3-text-black"><%= u.getId()%></td>
-                    <td class="w3-center w3-text-black"><%= u.getName()%></td>
-                    <td class="w3-center w3-text-black"><%= u.getEmail()%></td>
-                    <td class="w3-center w3-text-black"><%= u.getPassword()%></td>
+                    <td style="padding-top: 25px" class="w3-center w3-text-black"><%= u.getId()%></td>
+                    <td style="padding-top: 25px" class="w3-center w3-text-black"><%= u.getName()%></td>
+                    <td style="padding-top: 25px" class="w3-center w3-text-black"><%= u.getEmail()%></td>
+                    <td style="padding-top: 25px" class="w3-center w3-text-black"><%= u.getPassword()%></td>
                     <td class="w3-center w3-text-black w3-hover-red">
                         <form method="post" action="adm?action=del">
                             <button class="w3-button w3-large w3-circle w3-red w3-card-4"><svg xmlns="http://www.w3.org/2000/svg" width="30" height="30" fill="currentColor" class="bi bi-person-x-fill" viewBox="0 0 16 16">

@@ -8,14 +8,16 @@ public class ConnectionManager {
 
 //    private static String URL = "jdbc:mysql://localhost:3306/userdb?useSSL=false&serverTimezone=UTC";
 //    private static String URL = "jdbc:mysql://localhost:3306/usersdb?useSSL=false&serverTimezone=UTC";
-    private static String URL = "jdbc:mysql://192.168.88.105:3306/userdb";
-    private static String USER_NAME = "root";
+    private static String URL = "jdbc:postgresql://192.168.88.105:5432/usersDB";
+    private static String USER_NAME = "postgres";
     private static String PASSWORD = "rootroot";
 
 //    public static Connection getConnection(String url, String userName, String password) {
     public static Connection getConnection() {
         try {
-            Class.forName("com.mysql.jdbc.Driver");
+            Class.forName("org.postgresql.Driver");
+            System.out.println("^^^^^^^^^^^^^^^^^^^^^");
+            System.out.println("-------------->"+DriverManager.getConnection(URL, USER_NAME, PASSWORD));
                             return DriverManager.getConnection(URL, USER_NAME, PASSWORD);
 //            return ConnectionPool.getInstance().getConnection();
 
@@ -23,7 +25,6 @@ public class ConnectionManager {
             e.printStackTrace();
         }
 //        return null;
-        System.out.println();
         throw new ArrayIndexOutOfBoundsException();
     }
 }
