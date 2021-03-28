@@ -1,30 +1,31 @@
 package service;
 
+import org.apache.commons.dbcp2.BasicDataSource;
+
 import java.sql.Connection;
-import java.sql.DriverManager;
 import java.sql.SQLException;
 
 public class ConnectionManager {
 
-//    private static String URL = "jdbc:mysql://localhost:3306/userdb?useSSL=false&serverTimezone=UTC";
-//    private static String URL = "jdbc:mysql://localhost:3306/usersdb?useSSL=false&serverTimezone=UTC";
     private static String URL = "jdbc:postgresql://192.168.88.105:5432/usersDB";
     private static String USER_NAME = "postgres";
     private static String PASSWORD = "rootroot";
 
-//    public static Connection getConnection(String url, String userName, String password) {
-    public static Connection getConnection() {
-        try {
-            Class.forName("org.postgresql.Driver");
-            System.out.println("^^^^^^^^^^^^^^^^^^^^^");
-            System.out.println("-------------->"+DriverManager.getConnection(URL, USER_NAME, PASSWORD));
-                            return DriverManager.getConnection(URL, USER_NAME, PASSWORD);
-//            return ConnectionPool.getInstance().getConnection();
+    private static BasicDataSource ds = new BasicDataSource();
+    private static Connection connection;
 
-        } catch (ClassNotFoundException | SQLException e) {
-            e.printStackTrace();
-        }
-//        return null;
-        throw new ArrayIndexOutOfBoundsException();
+    private void instance() throws SQLException {
+        ds.setDriverClassName("org.postgresql.Driver");
+        ds.setUrl(URL);
+        ds.setUsername(USER_NAME);
+        ds.setPassword(PASSWORD);
+        ds.setMinIdle(5);
+        ds.setMaxIdle(10);
+        ds.setMaxOpenPreparedStatements(100);
+        connection = ds.getConnection();
+    }
+
+    public Connection getConnection() {
+        return connection;
     }
 }

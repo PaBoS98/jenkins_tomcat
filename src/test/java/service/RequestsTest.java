@@ -1,11 +1,8 @@
 package service;
 
 import org.junit.jupiter.api.Assertions;
-import org.junit.jupiter.api.BeforeAll;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
-import org.mockito.Mock;
-import org.mockito.Mockito;
 import service.Entity.User;
 import service.dto.UserDto;
 
@@ -17,7 +14,6 @@ public class RequestsTest {
 
     Connection connection;
     Requests r;
-
 
     @BeforeEach
     void init() throws SQLException {
@@ -38,7 +34,6 @@ public class RequestsTest {
         r.createUser(u);
 
         UserDto d = r.findUser(u.getName(), u.getPassword());
-        ;
 
         User get = new User.Builder().setName(d.getName()).setEmail(d.getEmail()).setPassword(d.getPassword()).build();
 

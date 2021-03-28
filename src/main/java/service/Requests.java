@@ -4,8 +4,6 @@ import service.Entity.User;
 import service.dto.UserDto;
 
 import java.sql.*;
-import java.text.DateFormat;
-import java.text.SimpleDateFormat;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -13,7 +11,6 @@ public class Requests {
 
     private Connection connection;
     private PreparedStatement prepareStatement;
-    private DateFormat dateFormat = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss");
 
     public Requests(Connection connection) {
         this.connection = connection;
@@ -61,10 +58,10 @@ public class Requests {
         ResultSet resultSet = statement.executeQuery("select * from users");
         while (resultSet.next()) {
             users.add(new UserDto.Builder()
-            .setId(resultSet.getLong("id"))
-            .setName(resultSet.getString("name"))
-            .setEmail(resultSet.getString("email"))
-            .setPassword(resultSet.getString("password")).build());
+                    .setId(resultSet.getLong("id"))
+                    .setName(resultSet.getString("name"))
+                    .setEmail(resultSet.getString("email"))
+                    .setPassword(resultSet.getString("password")).build());
         }
 
         return users;

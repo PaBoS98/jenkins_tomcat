@@ -1,5 +1,6 @@
 package service.command;
 
+import org.springframework.context.support.ClassPathXmlApplicationContext;
 import service.ConnectionManager;
 import service.Requests;
 
@@ -13,7 +14,9 @@ public class Delete implements Command {
     public RequestDispatcher action(HttpServletRequest request, HttpServletResponse response, String type) throws SQLException {
 
         if (request.getParameter("id") != null) {
-            Requests r = new Requests(ConnectionManager.getConnection());
+            Requests r = new Requests(
+                    new ClassPathXmlApplicationContext("context/ApplicationContext.xml").getBean(ConnectionManager.class).getConnection()
+            );
             r.deleteUser(Integer.parseInt(request.getParameter("id")));
             return request.getRequestDispatcher("adm?action=show");
         }

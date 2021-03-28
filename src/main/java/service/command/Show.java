@@ -1,5 +1,6 @@
 package service.command;
 
+import org.springframework.context.support.ClassPathXmlApplicationContext;
 import service.ConnectionManager;
 import service.Requests;
 import service.dto.UserDto;
@@ -15,7 +16,9 @@ import java.util.List;
 public class Show implements Command {
     @Override
     public RequestDispatcher action(HttpServletRequest request, HttpServletResponse response, String type) throws SQLException, ServletException, IOException {
-        Requests r = new Requests(ConnectionManager.getConnection());
+        Requests r = new Requests(
+                new ClassPathXmlApplicationContext("context/ApplicationContext.xml").getBean(ConnectionManager.class).getConnection()
+        );
         List<UserDto> users = r.showAllUser();
         request.setAttribute("listUser", users);
         return request.getRequestDispatcher("page/show.jsp");

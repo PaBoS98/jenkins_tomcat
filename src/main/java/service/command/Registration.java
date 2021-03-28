@@ -1,5 +1,6 @@
 package service.command;
 
+import org.springframework.context.support.ClassPathXmlApplicationContext;
 import service.ConnectionManager;
 import service.Entity.User;
 import service.Requests;
@@ -16,7 +17,9 @@ public class Registration implements Command {
     @Override
     public RequestDispatcher action(HttpServletRequest request, HttpServletResponse response, String type) throws SQLException, ServletException, IOException {
         if (type.equals("post")) {
-            Requests r = new Requests(ConnectionManager.getConnection());
+            Requests r = new Requests(
+                    new ClassPathXmlApplicationContext("context/ApplicationContext.xml").getBean(ConnectionManager.class).getConnection()
+            );
 
             User user = new User.Builder()
                     .setName(request.getParameter("name"))
